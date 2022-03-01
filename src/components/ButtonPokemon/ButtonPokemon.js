@@ -7,7 +7,7 @@ function ButtonPokemon({ name, url, click }) {
   }
 
   return (
-    <button onClick={handlePokemon}>{name}</button>
+    <button className="button-pokemon" onClick={handlePokemon} type="button">{name}</button>
   );
 }
 

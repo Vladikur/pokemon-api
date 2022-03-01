@@ -1,0 +1,21 @@
+.button-pokemon {
+  margin: 10px 0 0 6px;
+  padding: 0 20px 0 20px;
+  box-sizing: border-box;
+  background: #1986EC;
+  height: 60px;
+  border-radius: 44px;
+  border: none;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  transition: opacity 0.1s linear 0.1s;
+  opacity: 1;
+}
+
+.button-pokemon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
