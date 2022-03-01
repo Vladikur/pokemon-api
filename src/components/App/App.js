@@ -1,9 +1,9 @@
-import './App.css';
 import axios from 'axios';
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import PokemonCard from './PokemonCard';
-import ButtonPokemon from './ButtonPokemon';
+import PokemonCard from '../PokemonCard/PokemonCard';
+import ButtonPokemon from '../ButtonPokemon/ButtonPokemon';
+import Header from '../Header/Header';
+
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
 
   }, [])
 
-  function pokemonKlick (url) {
+  function pokemonClick (url) {
     axios.get(`${url}`)
     .then(res => {
       const p = res.data;
@@ -51,23 +51,18 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={1}
-      >
+    <div className="app">
+      <Header/>
+      <div className="app__button-container">
         {allPokemons.map((p, index) => (
           <ButtonPokemon
             key={index}
             name={p.name}
             url={p.url}
-            click={pokemonKlick}
+            click={pokemonClick}
           />
         ))}
-      </Grid>
+      </div>
         <PokemonCard
           name={pokemon.name}
           image={pokemon.sprites}
