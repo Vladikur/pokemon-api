@@ -1,16 +1,25 @@
 $app-text-color: white;
+$bacgraud-card-color: rgb(51, 32, 32);
 
+.pokemon-card {
+  border-radius: 10px;
+  background: $bacgraud-card-color;
+  padding: 20px 0 20px 0;
+  box-sizing: border-box;
+  box-shadow: 0 20px 40px -14px rgb(156, 9, 9);
+}
 .pokemon-card__header {
   margin: 0;
   font-family: Inter, 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 48px;
+  font-size: 40px;
+  text-align: center;
   color: $app-text-color;
 }
 
 .pokemon-card__description {
-  margin: 0;
+  margin: 0 0 0 20px;
   font-family: Inter, 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;

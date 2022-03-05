@@ -59,6 +59,7 @@ function PokemonsHolder() {
           />
         ))}
       </div>
+      <div className="pokemons-holder__card-container">
         <PokemonCard
           name={pokemon.name}
           image={pokemon.sprites}
@@ -67,6 +68,7 @@ function PokemonsHolder() {
           height={pokemon.height}
           attack={pokemon.stats}
         />
+      </div>
     </div>
   );
 }

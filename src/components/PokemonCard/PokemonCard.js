@@ -23,7 +23,7 @@ function PokemonCard({ name, image, id, movies, height, attack }) {
       } else {
         setCount(1)
       }
-    }, 2000)
+    }, 1500)
 
     if(count === 1) {
       setPokemon(image.front_default)

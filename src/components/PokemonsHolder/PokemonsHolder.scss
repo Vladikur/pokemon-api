@@ -1,4 +1,12 @@
+.pokemons-holder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1280px;
+}
+
 .pokemons-holder__button-container {
+  width: 500px;
   display: flex;
   flex-wrap: wrap;
 }
