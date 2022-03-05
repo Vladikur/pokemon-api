@@ -1,6 +1,7 @@
 import * as React from 'react';
+import Preloader from '../Preloader/Preloader';
 
-function PokemonCard({ name, image, id, movies, height, attack }) {
+function PokemonCard({ name, image, id, movies, height, attack, preloader }) {
 
   const [pokemonAttack, setPokemonAttack] = React.useState('');
   const [count, setCount] = React.useState(1)
@@ -13,8 +14,6 @@ function PokemonCard({ name, image, id, movies, height, attack }) {
       }
     });
   }, [attack])
-
-
 
   React.useEffect (() => {
     const interval = setInterval(() => {
@@ -43,12 +42,13 @@ function PokemonCard({ name, image, id, movies, height, attack }) {
 
   return (
     <div className="pokemon-card">
-      <h1 className="pokemon-card__header">{name}</h1>
-      <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
-      <p className="pokemon-card__description">Снялся в {movies.length} сериях</p>
-      <p className="pokemon-card__description">Id: {id}</p>
-      <p className="pokemon-card__description">height: {height}</p>
-      <p className="pokemon-card__description">attack: {pokemonAttack}</p>
+        { preloader ? <Preloader/> : '' }
+        <h1 className="pokemon-card__header">{name}</h1>
+        <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
+        <p className="pokemon-card__description">Снялся в {movies.length} сериях</p>
+        <p className="pokemon-card__description">Id: {id}</p>
+        <p className="pokemon-card__description">height: {height}</p>
+        <p className="pokemon-card__description">attack: {pokemonAttack}</p>
     </div>
   );
 }

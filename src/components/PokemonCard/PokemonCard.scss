@@ -7,6 +7,9 @@ $bacgraud-card-color: rgb(51, 32, 32);
   padding: 20px 0 20px 0;
   box-sizing: border-box;
   box-shadow: 0 20px 40px -14px rgb(156, 9, 9);
+  min-width: 300px;
+  min-height: 464px;
+  position: relative;
 }
 .pokemon-card__header {
   margin: 0;

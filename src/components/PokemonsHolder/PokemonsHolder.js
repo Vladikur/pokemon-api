@@ -14,11 +14,19 @@ function PokemonsHolder() {
     },
   });
   const [allPokemons, setAllPokemons] = React.useState([]);
+  const [isReceiving, setIsReceiving] = React.useState(false);
+
+  function preloaderTimer() {
+    setTimeout(() => {
+      setIsReceiving(false)
+    }, 1500)
+  }
 
   React.useEffect(() => {
+    setIsReceiving(true)
     axios.get(`https://pokeapi.co/api/v2/pokemon/`)
     .then(res => {
-      const p = res.data.results.slice(0, 10);
+      const p = res.data.results;
       setAllPokemons(p);
     })
     .catch((err) => {
@@ -33,10 +41,14 @@ function PokemonsHolder() {
     .catch((err) => {
       console.log(err)
     })
+    .finally(() => {
+      preloaderTimer()
+    });
 
   }, [])
 
   function pokemonClick (url) {
+    setIsReceiving(true)
     axios.get(`${url}`)
     .then(res => {
       const p = res.data;
@@ -45,6 +57,9 @@ function PokemonsHolder() {
     .catch((err) => {
       console.log(err)
     })
+    .finally(() => {
+      preloaderTimer()
+    });
   }
 
   return (
@@ -67,6 +82,7 @@ function PokemonsHolder() {
           movies={pokemon.moves}
           height={pokemon.height}
           attack={pokemon.stats}
+          preloader={isReceiving}
         />
       </div>
     </div>
