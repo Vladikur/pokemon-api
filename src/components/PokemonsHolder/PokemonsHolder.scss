@@ -3,10 +3,24 @@
   justify-content: space-around;
   align-items: center;
   max-width: 1280px;
+  padding: 0 20px 0 20px;
 }
 
 .pokemons-holder__button-container {
   width: 500px;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .pokemons-holder {
+    flex-direction: column-reverse;
+  }
+
+  .pokemons-holder__button-container {
+    margin-top: 30px;
+    width: 300px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+  }
 }
