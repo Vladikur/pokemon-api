@@ -19,7 +19,7 @@ function PokemonsHolder() {
   function preloaderTimer() {
     setTimeout(() => {
       setIsReceiving(false)
-    }, 1500)
+    }, 2000)
   }
 
   React.useEffect(() => {

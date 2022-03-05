@@ -40,9 +40,11 @@ function PokemonCard({ name, image, id, movies, height, attack, preloader }) {
     return () => clearInterval(interval);
   }, [count, image])
 
+  
+
   return (
     <div className="pokemon-card">
-        { preloader ? <Preloader/> : '' }
+        <Preloader preloader={preloader} />
         <h1 className="pokemon-card__header">{name}</h1>
         <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
         <p className="pokemon-card__description">Снялся в {movies.length} сериях</p>
