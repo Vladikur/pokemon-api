@@ -1,3 +1,5 @@
+$button-margin: 40px;
+
 .pokemons-holder {
   margin: 0 auto 0 auto;
   display: flex;
@@ -8,22 +10,79 @@
   box-sizing: border-box;
 }
 
-.pokemons-holder__button-container {
-  width: 500px;
+.pokemons-holder__container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-
 }
 
-@media screen and (max-width: 720px) {
+.pokemons-holder__button-container {
+  margin-right: 20px;
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemons-holder__nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.pokemons-holder__text {
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
+
+.pokemons-holder__button {
+  padding: 0 20px 0 20px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  height: 60px;
+  border-radius: 44px;
+  border: none;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #1986EC;
+  transition: opacity 0.1s linear 0.1s;
+  opacity: 1;
+}
+
+.pokemons-holder__button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 750px) {
   .pokemons-holder {
     flex-direction: column-reverse;
   }
 
   .pokemons-holder__button-container {
+    margin-right: 0;
     margin-top: 30px;
     width: 300px;
-    padding-bottom: 40px;
     box-sizing: border-box;
+  }
+
+  .pokemons-holder__nav-container {
+    padding: 20px 20px 40px 20px;
+  }
+
+  .pokemons-holder__button {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10x 0 10px;
+  }
+
+  .pokemons-holder__text {
+    font-size: 14px;
   }
 }

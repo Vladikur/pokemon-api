@@ -1,87 +1,76 @@
 import * as React from 'react';
-import axios from 'axios';
+import { useSelector } from 'react-redux'
 import PokemonCard from '../PokemonCard/PokemonCard';
 import ButtonPokemon from '../ButtonPokemon/ButtonPokemon';
 
-function PokemonsHolder() {
+function PokemonsHolder({pokemonClick, isReceiving}) {
 
-  const [pokemon, setPokemon] = React.useState({
-    name: '',
-    moves: [],
-    stats: [],
-    sprites: {
-      front_default: '',
-    },
+  const pokemons = useSelector(state => state.pokemonsListReducer.pokemons);
+  const [visiblePokemons, setVisiblePokemons] = React.useState([]);
+  const [pageNumbers, setpageNumbers] = React.useState({
+    current: 0,
+    all: 0
   });
-  const [allPokemons, setAllPokemons] = React.useState([]);
-  const [isReceiving, setIsReceiving] = React.useState(false);
-
-  function preloaderTimer() {
-    setTimeout(() => {
-      setIsReceiving(false)
-    }, 2000)
-  }
+  const [slice, setSlice] = React.useState({
+    first: 0,
+    last: 15
+  });
 
   React.useEffect(() => {
-    setIsReceiving(true)
-    axios.get(`https://pokeapi.co/api/v2/pokemon/`)
-    .then(res => {
-      const p = res.data.results;
-      setAllPokemons(p);
+    setVisiblePokemons(pokemons.slice(slice.first, slice.last))
+    setpageNumbers({
+      current: 1,
+      all: Math.ceil(pokemons.length / 15)
     })
-    .catch((err) => {
-      console.log(err)
-    })
+  }, [pokemons])
 
-    axios.get(`https://pokeapi.co/api/v2/pokemon/1/`)
-    .then(res => {
-      const p = res.data;
-      setPokemon(p);
+  function clickBack() {
+    const newPage = {
+      first: slice.first - 15,
+      last: slice.last - 15
+    }
+    setVisiblePokemons(pokemons.slice(newPage.first, newPage.last))
+    setSlice({...newPage})
+    setpageNumbers({
+      ...pageNumbers,
+      current: pageNumbers.current - 1,
     })
-    .catch((err) => {
-      console.log(err)
-    })
-    .finally(() => {
-      preloaderTimer()
-    });
+  }
 
-  }, [])
-
-  function pokemonClick (url) {
-    setIsReceiving(true)
-    axios.get(`${url}`)
-    .then(res => {
-      const p = res.data;
-      setPokemon(p);
+  function clickforward() {
+    const newPage = {
+      first: slice.first + 15,
+      last: slice.last + 15
+    }
+    setVisiblePokemons(pokemons.slice(newPage.first, newPage.last))
+    setSlice({...newPage})
+    setpageNumbers({
+      ...pageNumbers,
+      current: pageNumbers.current + 1,
     })
-    .catch((err) => {
-      console.log(err)
-    })
-    .finally(() => {
-      preloaderTimer()
-    });
   }
 
   return (
     <div className="pokemons-holder">
-      <div className="pokemons-holder__button-container">
-        {allPokemons.map((p, index) => (
-          <ButtonPokemon
-            key={index}
-            name={p.name}
-            url={p.url}
-            click={pokemonClick}
-          />
-        ))}
+      <div className="pokemons-holder__container">
+        <div className="pokemons-holder__button-container">
+          {visiblePokemons.map((p, index) => (
+            <ButtonPokemon
+              key={index}
+              name={p.name}
+              url={p.url}
+              click={pokemonClick}
+            />
+          ))}
+        </div>
+        <div className="pokemons-holder__nav-container">
+          { pageNumbers.current !== 1 ? < button onClick={clickBack} className="pokemons-holder__button" type='button'>Пред.</button> : '' }
+          <p className="pokemons-holder__text">Стр. {pageNumbers.current} из {pageNumbers.all}</p>
+          { pageNumbers.current !== pageNumbers.all ? <button onClick={clickforward} className="pokemons-holder__button" type='button'>След.</button> : ''}
+        </div>
       </div>
       <div className="pokemons-holder__card-container">
         <PokemonCard
-          name={pokemon.name}
-          image={pokemon.sprites}
-          id={pokemon.id}
-          movies={pokemon.moves}
-          height={pokemon.height}
-          attack={pokemon.stats}
           preloader={isReceiving}
         />
       </div>
