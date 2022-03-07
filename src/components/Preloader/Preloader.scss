@@ -6,12 +6,30 @@
       transform: rotate(360deg);
   }
 }
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .rotation {
   animation-name: rotation;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-fill-mode: backwards;
+}
+
+.pulse {
+  transform: scale(1);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .preloader {
@@ -33,3 +51,4 @@
   object-fit: cover;
   object-position: center;
 }
+

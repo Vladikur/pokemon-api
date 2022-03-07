@@ -4,7 +4,7 @@ import ball from '../../images/ball.png';
 function Preloader({ preloader }) {
 
   const preloaderClassName = (
-    `preloader__image ${preloader ? 'rotation' : ''}`
+    `preloader__image ${preloader ? 'rotation' : 'pulse'}`
   );
 
   return (
