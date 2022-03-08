@@ -7,47 +7,53 @@
   }
 }
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  to {
-    transform: scale(1);
-  }
-}
+// @keyframes pulse {
+//   from {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.1);
+//   }
+//   to {
+//     transform: scale(1);
+//   }
+// }
+
+// .pulse {
+//   transform: scale(1);
+//   animation: pulse 2s ease-in-out infinite;
+// }
 
 .rotation {
   animation-name: rotation;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-fill-mode: backwards;
 }
 
-.pulse {
-  transform: scale(1);
-  animation: pulse 2s ease-in-out infinite;
-}
-
 .preloader {
+  border-radius: 10px;
+  background-color: rgb(51, 32, 32);
+  box-sizing: border-box;
+  padding: 100px 50px 0 50px;
+  width: 300px;
+  height: 460px;
   position: absolute;
-  bottom: 35px;
-  right: 20px;
+  top: 0;
+  right: 0;
 }
 
 .preloader__shadow {
   margin: 0 auto 0 auto;
-  width: 40px;
+  width: 160px;
   border-radius: 50%;
-  box-shadow: 0px 15px 15px 4px rgb(0, 0, 0);
+  box-shadow: 0px 15px 30px 8px rgb(0, 0, 0);
 }
 
 .preloader__image {
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   object-position: center;
 }

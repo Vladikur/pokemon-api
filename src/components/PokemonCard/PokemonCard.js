@@ -47,7 +47,7 @@ function PokemonCard({ preloader }) {
 
   return (
     <div className="pokemon-card">
-        <Preloader preloader={preloader} />
+        { preloader ? <Preloader preloader={preloader} /> : '' }
         <h1 className="pokemon-card__header">{pokemon.name}</h1>
         <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
         <p className="pokemon-card__description">Снялся в {pokemon.moves.length} сериях</p>
