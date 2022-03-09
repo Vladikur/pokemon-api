@@ -60,6 +60,26 @@ $button-margin: 40px;
   opacity: 0.5;
 }
 
+.pokemons-holder__input {
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  padding: 20px 0 20px 0;
+  box-sizing: border-box;
+  margin: 40px 10px 0 10px;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #1986EC;
+  text-align: center;
+}
+
+.pokemons-holder__input:focus {
+  outline: none;
+  border: 3px solid #1986EC;
+}
+
 @media screen and (max-width: 750px) {
   .pokemons-holder {
     flex-direction: column-reverse;
@@ -67,13 +87,9 @@ $button-margin: 40px;
 
   .pokemons-holder__button-container {
     margin-right: 0;
-    margin-top: 30px;
     width: 300px;
     box-sizing: border-box;
-  }
-
-  .pokemons-holder__nav-container {
-    padding: 20px 20px 40px 20px;
+    margin-bottom: 40px;
   }
 
   .pokemons-holder__button {
@@ -85,4 +101,5 @@ $button-margin: 40px;
   .pokemons-holder__text {
     font-size: 14px;
   }
+
 }

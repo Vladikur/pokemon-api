@@ -10,7 +10,7 @@ import { randomPokemon } from '../../utils/RandomPokemon';
 function App() {
 
   const dispatch = useDispatch();
-  const [isReceiving, setIsReceiving] = React.useState(false);
+  const [isReceiving, setIsReceiving] = React.useState(true);
 
   function preloaderTimer() {
     setTimeout(() => {
