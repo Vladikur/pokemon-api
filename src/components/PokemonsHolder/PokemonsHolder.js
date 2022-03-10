@@ -71,12 +71,13 @@ function PokemonsHolder({pokemonClick, isReceiving}) {
     <div className="pokemons-holder">
       <div className="pokemons-holder__container">
         <input placeholder='Поиск покемонов' value={inputValue || ''} onChange={handleChange} className="pokemons-holder__input" type="text" name="name" />
-        <div className="pokemons-holder__nav-container">
-          { pageNumbers.current !== 1 ? < button onClick={clickBack} className="pokemons-holder__button" type='button'>Пред.</button> : '' }
-          <p className="pokemons-holder__text">Стр. {pageNumbers.current} из {pageNumbers.all}</p>
-          { pageNumbers.current !== pageNumbers.all ? <button onClick={clickforward} className="pokemons-holder__button" type='button'>След.</button> : ''}
-        </div>
-        { foundPokemons.length === 0 ? <p className="pokemons-holder__text">Покемонов с таким иминем не нашлось...</p> : '' }
+        { foundPokemons.length === 0 ? <p className="pokemons-holder__text">Покемонов с таким иминем не нашлось...</p> : 
+          <div className="pokemons-holder__nav-container">
+            { pageNumbers.current !== 1 ? < button onClick={clickBack} className="pokemons-holder__button" type='button'>Пред.</button> : '' }
+            <p className="pokemons-holder__text">Стр. {pageNumbers.current} из {pageNumbers.all}</p>
+            { pageNumbers.current !== pageNumbers.all ? <button onClick={clickforward} className="pokemons-holder__button" type='button'>След.</button> : ''}
+          </div>
+        }
         <div className="pokemons-holder__button-container">
           {visiblePokemons.map((p, index) => (
             <ButtonPokemon
