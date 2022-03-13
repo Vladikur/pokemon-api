@@ -1,6 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
 import Header from '../Header/Header';
+import Popup from '../Popup/Popup';
 import PokemonsHolder from '../PokemonsHolder/PokemonsHolder';
 import { useDispatch } from 'react-redux'
 import { addPokemons } from '../../store/PokemonsListReducer';
@@ -11,6 +12,15 @@ function App() {
 
   const dispatch = useDispatch();
   const [isReceiving, setIsReceiving] = React.useState(true);
+  const [popupOpen, setPopupOpen] = React.useState(false);
+
+  function openPopup() {
+    setPopupOpen(true)
+  } 
+
+  function closePopup() {
+    setPopupOpen(false)
+  } 
 
   function preloaderTimer() {
     setTimeout(() => {
@@ -33,10 +43,12 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
+        openPopup()
       })
     })
     .catch((err) => {
       console.log(err)
+      openPopup()
     })
     .finally(() => {
       preloaderTimer()
@@ -53,6 +65,7 @@ function App() {
     })
     .catch((err) => {
       console.log(err)
+      openPopup()
     })
     .finally(() => {
       preloaderTimer()
@@ -67,6 +80,11 @@ function App() {
       <PokemonsHolder
         pokemonClick={pokemonClick}
         isReceiving={isReceiving}
+      />
+
+      <Popup
+      closePopup={closePopup}
+      isOpen={popupOpen}
       />
       
     </div>

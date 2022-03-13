@@ -2,13 +2,16 @@ $app-text-color: white;
 $bacgraud-card-color: rgb(51, 32, 32);
 
 .pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 10px;
   background: $bacgraud-card-color;
   padding: 20px 0 20px 0;
   box-sizing: border-box;
   box-shadow: 0 20px 40px -14px rgb(156, 9, 9);
   width: 300px;
-  min-height: 460px;
+  min-height: 497px;
   position: relative;
 }
 .pokemon-card__header {
