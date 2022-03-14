@@ -1,37 +1,3 @@
-@keyframes rotation {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
-
-// @keyframes pulse {
-//   from {
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(1.1);
-//   }
-//   to {
-//     transform: scale(1);
-//   }
-// }
-
-// .pulse {
-//   transform: scale(1);
-//   animation: pulse 2s ease-in-out infinite;
-// }
-
-.rotation {
-  animation-name: rotation;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-fill-mode: backwards;
-}
-
 .preloader {
   border-radius: 10px;
   background-color: rgb(51, 32, 32);

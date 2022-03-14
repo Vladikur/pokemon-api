@@ -1,7 +1,13 @@
 $app-text-color: white;
 $bacgraud-card-color: rgb(51, 32, 32);
 
+
+
 .pokemon-card {
+  position: relative;
+}
+
+.pokemon-card__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +19,7 @@ $bacgraud-card-color: rgb(51, 32, 32);
   width: 300px;
   min-height: 497px;
   position: relative;
+  z-index: 2;
 }
 .pokemon-card__header {
   margin: 0 20px 10px 20px;
@@ -36,4 +43,20 @@ $bacgraud-card-color: rgb(51, 32, 32);
 .pokemon-card__image {
   width: 300px;
   height: 300px;
+}
+
+.pokemon-card__live-image {
+  position: absolute;
+  top: -94px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  transition: 0.1s linear 0.1s;
+  z-index: 1;
+}
+
+.pokemon-card__live-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  z-index: 2;
 }

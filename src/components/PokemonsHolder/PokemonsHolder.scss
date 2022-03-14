@@ -80,6 +80,10 @@ $button-margin: 40px;
   border: 3px solid #1986EC;
 }
 
+.pokemons-holder__card-container {
+  position: relative;
+}
+
 @media screen and (max-width: 750px) {
   .pokemons-holder {
     flex-direction: column-reverse;

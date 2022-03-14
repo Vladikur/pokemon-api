@@ -1,14 +1,18 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux'
 import Preloader from '../Preloader/Preloader';
+import slowpoke from '../../images/slowpoke.png';
+import { randomPokemon } from '../../utils/RandomPokemon';
 
 function PokemonCard({ preloader }) {
 
   const pokemon = useSelector(state => state.pokemonReducer.pokemon);
+  const animations = ['pulse', 'jump', 'down']
 
   const [pokemonAttack, setPokemonAttack] = React.useState('');
   const [count, setCount] = React.useState(1)
   const [imagePokemon, setPokemon] = React.useState(pokemon.sprites.front_default)
+  const [liveImageAnimation, setliveImageAnimation] = React.useState('move');
 
   React.useEffect(() => {
     pokemon.stats.forEach((item, index) => {
@@ -43,17 +47,26 @@ function PokemonCard({ preloader }) {
     return () => clearInterval(interval);
   }, [count, pokemon])
 
+  function randomanimation() {
+    const rand = Math.floor(Math.random() * animations.length)
+    const animation = animations[rand]
+    console.log(animation)
+    setliveImageAnimation(animation)
+  }
   
 
   return (
     <div className="pokemon-card">
-        { preloader ? <Preloader preloader={preloader} /> : '' }
-        <h1 className="pokemon-card__header">{pokemon.name}</h1>
-        <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
-        <p className="pokemon-card__description">Снялся в {pokemon.moves.length} сериях</p>
-        <p className="pokemon-card__description">Id: {pokemon.id}</p>
-        <p className="pokemon-card__description">height: {pokemon.height}</p>
-        <p className="pokemon-card__description">attack: {pokemonAttack}</p>
+      <div className="pokemon-card__container">
+          { preloader ? <Preloader preloader={preloader} /> : '' }
+          <h1 className="pokemon-card__header">{pokemon.name}</h1>
+          <img className="pokemon-card__image" src={imagePokemon} alt="Покемон" />
+          <p className="pokemon-card__description">Снялся в {pokemon.moves.length} сериях</p>
+          <p className="pokemon-card__description">Id: {pokemon.id}</p>
+          <p className="pokemon-card__description">height: {pokemon.height}</p>
+          <p className="pokemon-card__description">attack: {pokemonAttack}</p>
+      </div>
+      <img onClick={randomanimation} className={`pokemon-card__live-image ${liveImageAnimation}`} src={slowpoke} alt="Покемон" />
     </div>
   );
 }

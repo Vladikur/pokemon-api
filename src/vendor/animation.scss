@@ -1,0 +1,143 @@
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes move {
+  0% {
+    top: 0;
+  }
+  80% {
+    top: 0;
+  }
+  85% {
+    top: -94px;
+    transform: rotate(0deg);
+  }
+  90% {
+    top: -150px;
+    transform: rotate(180deg);
+  }
+  95% {
+    top: -94px;
+    transform: rotate(360deg);
+  }
+  100% {
+    top: -94px;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    z-index: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    z-index: 2;
+  }
+  to {
+    transform: scale(1);
+    z-index: 1;
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: -94px;
+    transform: rotate(0deg);
+  }
+  33% {
+    top: -150px;
+    transform: rotate(180deg);
+  }
+  66% {
+    top: -94px;
+    transform: rotate(360deg);
+  }
+  100% {
+    top: -94px;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes down {
+  0% {
+    top: -94px;
+    left: 0;
+    z-index: 1;
+  }
+  3% {
+    top: 0px;
+    left: 0;
+    z-index: 1;
+  }
+  50% {
+    top: 0px;
+    left: 0;
+    z-index: 1;
+  }
+  53% {
+    top: 0px;
+    left: -40px;
+    z-index: 1;
+  }
+  63% {
+    top: 0px;
+    left: -40px;
+    z-index: 1;
+  }
+  66% {
+    top: 0px;
+    left: 0;
+    z-index: 1;
+  }
+  90% {
+    top: 0px;
+    left: 0;
+    z-index: 1;
+  }
+  100% {
+    top: -94px;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.rotation {
+  animation-name: rotation;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+}
+
+.jump {
+  animation-name: jump;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.down {
+  animation-name: down;
+  animation-duration: 7s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+
+.pulse {
+  transform: scale(1);
+  animation: pulse 0.5s ease-in-out 3;
+}
+
+.move {
+  animation-name: move;
+  animation-duration: 3.5s;
+  animation-timing-function: linear;
+}
