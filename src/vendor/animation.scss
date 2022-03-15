@@ -192,6 +192,70 @@
   }
 }
 
+@keyframes goAway {
+  0% {
+    left: 0;
+  }
+  10% {
+    left: 150px;
+    transform: rotate(0deg);
+  }
+  13% {
+    left: 150px;
+    transform: rotate(0deg);
+  }
+  20% {
+    left: 150px;
+    transform: rotate(20deg);
+  }
+  23% {
+    left: 150px;
+    transform: rotate(20deg);
+  }
+  30% {
+    left: -3000px;
+    transform: rotate(20deg);
+    opacity: 1;
+  }
+  31% {
+    left: -3000px;
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  32% {
+    left: 3000px;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    left: 300px;
+    transform: rotate(0deg);
+  }
+  85% {
+    left: 150px;
+    transform: rotate(-20deg);
+  }
+  95% {
+    left: 0px;
+    transform: rotate(-40deg);
+  }
+  97% {
+    left: 0px;
+    transform: rotate(-40deg);
+  }
+  100% {
+    left: 0px;
+    transform: rotate(0deg);
+  }
+}
+
+.goAway {
+  animation-name: goAway;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
 .joke {
   animation-name: joke;
   animation-duration: 4s;

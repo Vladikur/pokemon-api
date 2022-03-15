@@ -6,7 +6,7 @@ import slowpoke from '../../images/slowpoke.png';
 function PokemonCard({ preloader }) {
 
   const pokemon = useSelector(state => state.pokemonReducer.pokemon);
-  const animations = ['pulse', 'jump', 'down', 'joke']
+  const animations = ['pulse', 'jump', 'down', 'joke', 'goAway']
 
   const [pokemonAttack, setPokemonAttack] = React.useState('');
   const [count, setCount] = React.useState(1)
