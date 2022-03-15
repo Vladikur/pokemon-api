@@ -2,12 +2,11 @@ import * as React from 'react';
 import { useSelector } from 'react-redux'
 import Preloader from '../Preloader/Preloader';
 import slowpoke from '../../images/slowpoke.png';
-import { randomPokemon } from '../../utils/RandomPokemon';
 
 function PokemonCard({ preloader }) {
 
   const pokemon = useSelector(state => state.pokemonReducer.pokemon);
-  const animations = ['pulse', 'jump', 'down']
+  const animations = ['pulse', 'jump', 'down', 'joke']
 
   const [pokemonAttack, setPokemonAttack] = React.useState('');
   const [count, setCount] = React.useState(1)

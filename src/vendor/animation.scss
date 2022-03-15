@@ -54,13 +54,13 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(2);
+    transform: scale(3);
   }
   60% {
     transform: scale(1);
   }
   70% {
-    transform: scale(6);
+    transform: scale(7);
     left: 150px;
   }
   100% {
@@ -119,6 +119,84 @@
     top: -90px;
     z-index: 2;
   }
+}
+
+@keyframes joke {
+  0% {
+    top: -90px;
+    left: 0;
+    z-index: 1;
+  }
+  5% {
+    top: 0px;
+    left: 5px;
+  }
+  50% {
+    top: 160px;
+    left: 100px;
+    transform: scale(1) rotate(0deg);
+    z-index: 1;
+  }
+  53% {
+    transform: scale(3) rotate(20deg);
+    z-index: 2;
+  }
+  56% {
+    transform: scale(3) rotate(-20deg);
+  }
+  59% {
+    transform: scale(3) rotate(20deg);
+  }
+  62% {
+    transform: scale(3) rotate(-20deg);
+  }
+  65% {
+    transform: scale(3) rotate(20deg);
+  }
+  68% {
+    transform: scale(3) rotate(-20deg);
+  }
+  70% {
+    transform: scale(3) rotate(20deg);
+  }
+  73% {
+    transform: scale(3) rotate(-20deg);
+  }
+  76% {
+    transform: scale(3) rotate(20deg);
+  }
+  79% {
+    transform: scale(3) rotate(-20deg);
+  }
+  82% {
+    transform: scale(3) rotate(20deg);
+  }
+  85% {
+    transform: scale(3) rotate(-20deg);
+    z-index: 2;
+  }
+  90% {
+    top: 160px;
+    left: 100px;
+    transform: scale(1) rotate(0deg);
+    z-index: 1;
+  }
+  96% {
+    top: -100px;
+    left: 0;
+    z-index: 1;
+  }
+  100% {
+    top: -90px;
+    z-index: 2;
+  }
+}
+
+.joke {
+  animation-name: joke;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
 }
 
 .rotation {
