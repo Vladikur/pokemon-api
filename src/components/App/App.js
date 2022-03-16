@@ -29,13 +29,11 @@ function App() {
   }
 
   React.useEffect(() => {
-    setIsReceiving(true)
     axios.get(`https://pokeapi.co/api/v2/pokemon?offset=126&limit=1000`)
     .then(res => {
+      setIsReceiving(true)
       const pokemons = res.data.results;
       dispatch(addPokemons(pokemons))
-
-
       axios.get(`${randomPokemon(pokemons)}`)
       .then(res => {
         const pokemon = res.data;
@@ -45,15 +43,14 @@ function App() {
         console.log(err)
         openPopup()
       })
+      .finally(() => {
+        preloaderTimer()
+      });
     })
     .catch((err) => {
       console.log(err)
       openPopup()
     })
-    .finally(() => {
-      preloaderTimer()
-    });
-
   }, [])
 
   function pokemonClick (url) {
